@@ -1,86 +1,184 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esquema SKOS: Metadatos LOM</title>
-    <!-- Estilos CSS simples -->
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0 auto;
-            max-width: 800px;
-            padding: 2em;
-        }
-        h1, h2 {
-            color: #333;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 5px;
-        }
-        code {
-            background-color: #f4f4f4;
-            padding: 2px 5px;
-            border-radius: 4px;
-        }
-        .download-link {
-            display: inline-block;
-            background-color: #0366d6;
-            color: #ffffff;
-            padding: 10px 15px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-        }
-        .download-link:hover {
-            background-color: #0056b3;
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Práctica SKOS · Metadatos LOM</title>
+
+<style>
+  :root{
+    --maxw: 860px;
+    --bg: #ffffff;
+    --fg: #222;
+    --muted:#666;
+    --primary:#0d6efd;
+    --primary-dark:#0b5ed7;
+    --code-bg:#f6f8fa;
+    --card:#fafafa;
+  }
+  html,body{height:100%}
+  body{
+    margin:0 auto; padding:2.2rem 1.25rem;
+    max-width:var(--maxw);
+    color:var(--fg); background:var(--bg);
+    font: 16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  header h1{margin:.2rem 0 0; font-size:clamp(1.6rem,2.4vw,2.2rem)}
+  header p{margin:.25rem 0 0; color:var(--muted)}
+  hr{border:none; border-top:2px solid #eee; margin:1.2rem 0}
+  h2{margin:1.6rem 0 .6rem; padding-bottom:.2rem; border-bottom:2px solid #eee}
+  p{margin:.6rem 0}
+  .btn{
+    display:inline-block; background:var(--primary); color:#fff; text-decoration:none;
+    padding:.65rem 1rem; border-radius:.45rem; font-weight:600;
+  }
+  .btn:hover{background:var(--primary-dark)}
+  code{background:var(--code-bg); padding:.1rem .35rem; border-radius:.3rem}
+  .row{display:flex; gap:.8rem; flex-wrap:wrap; align-items:center}
+  .card{background:var(--card); border:1px solid #eee; border-radius:.6rem; padding:1rem}
+  .small{font-size:.95rem}
+  .muted{color:var(--muted)}
+  .uri-list code{display:inline-block; margin:.2rem 0 .4rem}
+  .copy{margin-left:.4rem; padding:.35rem .55rem; border:1px solid #ddd; background:#fff; border-radius:.3rem; cursor:pointer}
+  .copy:hover{background:#f2f2f2}
+  /* Visor del TTL */
+  .viewer{margin-top:1rem}
+  .viewer .toolbar{display:flex; gap:.6rem; align-items:center; margin-bottom:.6rem}
+  .viewer pre{
+    background:#0a0a0a; color:#e6e6e6; padding:1rem; border-radius:.6rem;
+    overflow:auto; white-space:pre; line-height:1.6; font-size:15px;
+  }
+  /* Modo libro */
+  .book body, .book .content{
+    font-family: "Iowan Old Style","Constantia","Cambria","Georgia",serif;
+  }
+  .book .content{
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+  .book .lead{
+    font-size:1.05rem; line-height:1.9;
+  }
+  .book .rule{height:2px;background:#eee;margin:1.2rem 0}
+  .toggle{
+    appearance:none; width:44px; height:26px; background:#ddd; border-radius:999px; position:relative; cursor:pointer; vertical-align:middle;
+    outline:none; border:none;
+  }
+  .toggle:checked{background:#9ad0ff}
+  .toggle::after{
+    content:""; position:absolute; width:20px; height:20px; background:#fff; border-radius:50%;
+    top:3px; left:3px; transition:transform .18s ease;
+    box-shadow:0 1px 2px rgba(0,0,0,.15);
+  }
+  .toggle:checked::after{ transform: translateX(18px); }
+  footer{margin-top:2rem; color:var(--muted); font-size:.95rem}
+</style>
 </head>
-<body>
+<body class="content" id="page">
 
-   
+<header>
+  <div class="row">
     <h1>Práctica SKOS: Metadatos LOM (Learning Object Metadata)</h1>
-    
-    <p>
-        Página principal del vocabulario 
-        <strong>Metadatos LOM</strong>.
-    </p>
+  </div>
+  <p class="lead">
+    Página principal del vocabulario <strong>Metadatos LOM</strong> para <em>Redes de computadores</em> (ASIR).
+  </p>
+</header>
 
-    <p>
-        El vocabulario define conceptos de redes de computación para alumnado de primer curso
-         del ciclo de grado superior de ASIR
-    </p>
+<div class="rule"></div>
 
-    <h2>Acceso al Esquema (Legible por Máquina)</h2>
-    <p>
-        El archivo fuente del esquema SKOS está disponible para su consumo por 
-        herramientas semánticas en la siguiente URL:
-    </p>
+<section>
+  <p>
+    El vocabulario define conceptos del área de redes de computación para alumnado de primer curso del ciclo de
+    grado superior de ASIR. Se publica en formato <strong>SKOS</strong> (RDF/Turtle) y sus URIs pueden utilizarse
+    en <strong>LOM/LOM-es (Categoría 9: Classification)</strong> mediante <code>taxonPath</code>.
+  </p>
 
-    <!-- 
-      ===============================================================
-      ¡¡MUY IMPORTANTE!!
-      Reemplaza "TU_ARCHIVO_SKOS.rdf" por el nombre EXACTO 
-      de tu archivo (ej: metadatoslom.rdf, esquema.ttl, etc.)
-      ===============================================================
-    -->
-    <a href="practicaskos.rdf" class="download-link">
-        Descargar Archivo SKOS (practicaskos.rdf)
-    </a>
-
-    <p style="margin-top: 20px;">
-        También puedes ver el archivo directamente en el repositorio de GitHub:
-        <code>
-            <!-- 
-            
-            -->
-            <a href="https://github.com/jakelins/metadatoslom/blob/main/practicaskos.rdf">
-                Ver en GitHub
-            </a>
-        </code>
+  <div class="card small">
+    <div class="row">
+      <a class="btn" href="skos/tesauro-redes.ttl" download>Descargar SKOS (Turtle .ttl)</a>
+      <a class="btn" href="https://jakelins.github.io/metadatoslom/skos/tesauro-redes.ttl" target="_blank" rel="noopener">Abrir SKOS publicado</a>
+      <a class="btn" href="https://github.com/jakelins/metadatoslom/blob/main/skos/tesauro-redes.ttl" target="_blank" rel="noopener">Ver en GitHub</a>
+    </div>
+    <p class="muted" style="margin:.6rem 0 0">
+      URL pública del tesauro: <code id="ttl-url">https://jakelins.github.io/metadatoslom/skos/tesauro-redes.ttl</code>
+      <button class="copy" onclick="copyText('#ttl-url')">Copiar</button>
     </p>
+  </div>
+</section>
+
+<h2>URIs SKOS para usar en LOM (Categoría 9 → taxonPath)</h2>
+<div class="uri-list small card">
+  <p>Inserta estas URIs en <code>&lt;classification&gt; &rarr; &lt;taxonPath&gt; &rarr; &lt;taxon&gt;&lt;id&gt;</code> y usa la etiqueta en <code>&lt;entry&gt;</code> (lang=es):</p>
+  <ul>
+    <li>
+      <code id="u1">https://jakelins.github.io/metadatoslom/skos/informatica</code>
+      — <em>Informática</em>
+      <button class="copy" onclick="copyText('#u1')">Copiar</button>
+    </li>
+    <li>
+      <code id="u2">https://jakelins.github.io/metadatoslom/skos/redes</code>
+      — <em>Redes de computadores</em>
+      <button class="copy" onclick="copyText('#u2')">Copiar</button>
+    </li>
+    <li>
+      <code id="u3">https://jakelins.github.io/metadatoslom/skos/ip</code>
+      — <em>Direccionamiento IP</em>
+      <button class="copy" onclick="copyText('#u3')">Copiar</button>
+    </li>
+    <li>
+      <code id="u4">https://jakelins.github.io/metadatoslom/skos/ipv6</code>
+      — <em>IPv6</em>
+      <button class="copy" onclick="copyText('#u4')">Copiar</button>
+    </li>
+  </ul>
+</div>
+
+<h2>Vista rápida del fichero SKOS (TTL)</h2>
+<div class="viewer">
+  <div class="toolbar">
+    <label class="small">Tamaño:
+      <input type="range" min="12" max="22" value="15" oninput="document.getElementById('ttl-pre').style.fontSize=this.value+'px'">
+    </label>
+    <label class="small" style="margin-left:1rem">Modo libro:
+      <input id="bookToggle" class="toggle" type="checkbox" onchange="toggleBook()">
+    </label>
+  </div>
+  <pre id="ttl-pre">Cargando contenido Turtle desde /skos/tesauro-redes.ttl…</pre>
+</div>
+
+<footer>
+  <hr>
+  <p>Publicado por Jakelin Saysa · CC BY 4.0 (si procede). · Última actualización: <span id="lastMod">—</span></p>
+</footer>
+
+<script>
+  // Cargar el TTL para visualizarlo en la página
+  fetch('skos/tesauro-redes.ttl')
+    .then(r => r.text())
+    .then(t => { document.getElementById('ttl-pre').textContent = t; })
+    .catch(() => { document.getElementById('ttl-pre').textContent = 'No se pudo cargar el TTL. Ver enlace superior.' });
+
+  // Copiar texto de un <code>
+  function copyText(selector){
+    const el = document.querySelector(selector);
+    if(!el) return;
+    const txt = el.textContent.trim();
+    navigator.clipboard.writeText(txt).then(()=>alert('Copiado al portapapeles:\n' + txt));
+  }
+
+  // Modo libro ON/OFF (tipografía serif, justificado e hifenación)
+  function toggleBook(){
+    const on = document.getElementById('bookToggle').checked;
+    document.documentElement.classList.toggle('book', on);
+    document.getElementById('page').classList.toggle('book', on);
+  }
+
+  // Fecha de última modificación (del HTML)
+  document.getElementById('lastMod').textContent = new Date(document.lastModified).toLocaleString();
+</script>
 
 </body>
 </html>
+
