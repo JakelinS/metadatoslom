@@ -1,0 +1,169 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <https://jakelins.github.io/metadatoslom/skos/> .
+
+# ----------------------------------------------------
+# ConceptScheme: el "esqueleto" del tesauro
+# ----------------------------------------------------
+ex:scheme a skos:ConceptScheme ;
+  dcterms:title "Tesauro de Redes de Computadores"@es ;
+  dcterms:title "Computer Networks Thesaurus"@en ;
+  dcterms:creator "Jakelin Saysa"@es ;
+  dcterms:issued "2025-11-11"^^xsd:date ;
+  dcterms:description "Tesauro SKOS para clasificar objetos de aprendizaje del área de Redes (FP/Bachillerato). Jerarquía básica + sinónimos + relaciones asociativas."@es ;
+  skos:hasTopConcept ex:informatica .
+
+# ----------------------------------------------------
+# Top concept
+# ----------------------------------------------------
+ex:informatica a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:topConceptOf ex:scheme ;
+  skos:prefLabel "Informática"@es ;
+  skos:prefLabel "Computing"@en ;
+  skos:narrower ex:redes .
+
+# ----------------------------------------------------
+# Nivel 1 bajo "Informática"
+# ----------------------------------------------------
+ex:redes a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "Redes de computadores"@es ;
+  skos:prefLabel "Computer networks"@en ;
+  skos:altLabel "Redes de computación"@es ;
+  skos:broader ex:informatica ;
+  skos:narrower ex:arquitecturas , ex:ip , ex:enrutamiento , ex:capa-enlace , ex:servicios .
+
+# ----------------------------------------------------
+# Ramas principales bajo "Redes"
+# ----------------------------------------------------
+ex:arquitecturas a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "Arquitecturas de red"@es ;
+  skos:prefLabel "Network architectures"@en ;
+  skos:broader ex:redes ;
+  skos:narrower ex:osi , ex:tcpip .
+
+ex:ip a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "Direccionamiento IP"@es ;
+  skos:prefLabel "IP addressing"@en ;
+  skos:broader ex:redes ;
+  skos:narrower ex:ipv4 , ex:ipv6 , ex:cidr .
+
+ex:enrutamiento a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "Enrutamiento"@es ;
+  skos:prefLabel "Routing"@en ;
+  skos:altLabel "Ruteo"@es ;
+  skos:broader ex:redes ;
+  skos:narrower ex:rip , ex:ospf , ex:bgp .
+
+ex:capa-enlace a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "Capa de enlace"@es ;
+  skos:prefLabel "Data link layer"@en ;
+  skos:broader ex:redes ;
+  skos:narrower ex:ethernet , ex:wifi .
+
+ex:servicios a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "Servicios de red"@es ;
+  skos:prefLabel "Network services"@en ;
+  skos:broader ex:redes ;
+  skos:narrower ex:dns , ex:dhcp .
+
+# ----------------------------------------------------
+# Conceptos específicos
+# ----------------------------------------------------
+ex:osi a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "Modelo OSI"@es ;
+  skos:prefLabel "OSI model"@en ;
+  skos:broader ex:arquitecturas ;
+  skos:related ex:tcpip .
+
+ex:tcpip a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "Suite TCP/IP"@es ;
+  skos:prefLabel "TCP/IP suite"@en ;
+  skos:altLabel "pila TCP/IP"@es ;
+  skos:altLabel "TCP/IP stack"@en ;
+  skos:broader ex:arquitecturas ;
+  skos:related ex:osi .
+
+ex:ipv4 a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "IPv4"@es ;
+  skos:prefLabel "IPv4"@en ;
+  skos:altLabel "IP v4"@es ;
+  skos:broader ex:ip ;
+  skos:related ex:ipv6 .
+
+ex:ipv6 a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "IPv6"@es ;
+  skos:prefLabel "IPv6"@en ;
+  skos:altLabel "IP v6"@es ;
+  skos:broader ex:ip ;
+  skos:related ex:ipv4 .
+
+ex:cidr a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "CIDR"@es ;
+  skos:prefLabel "CIDR"@en ;
+  skos:altLabel "enrutamiento sin clases"@es ;
+  skos:altLabel "classless routing"@en ;
+  skos:broader ex:ip ;
+  skos:related ex:enrutamiento .
+
+ex:rip a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "RIP"@es ;
+  skos:prefLabel "RIP"@en ;
+  skos:broader ex:enrutamiento .
+
+ex:ospf a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "OSPF"@es ;
+  skos:prefLabel "OSPF"@en ;
+  skos:broader ex:enrutamiento .
+
+ex:bgp a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "BGP"@es ;
+  skos:prefLabel "BGP"@en ;
+  skos:broader ex:enrutamiento .
+
+ex:ethernet a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "Ethernet"@es ;
+  skos:prefLabel "Ethernet"@en ;
+  skos:altLabel "IEEE 802.3"@es ;
+  skos:broader ex:capa-enlace ;
+  skos:related ex:wifi .
+
+ex:wifi a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "Wi-Fi"@es ;
+  skos:prefLabel "Wi-Fi"@en ;
+  skos:altLabel "WLAN"@es ;
+  skos:altLabel "Wireless LAN"@en ;
+  skos:broader ex:capa-enlace ;
+  skos:related ex:ethernet .
+
+ex:dns a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "DNS"@es ;
+  skos:prefLabel "DNS"@en ;
+  skos:altLabel "Sistema de Nombres de Dominio"@es ;
+  skos:broader ex:servicios ;
+  skos:related ex:ip .
+
+ex:dhcp a skos:Concept ;
+  skos:inScheme ex:scheme ;
+  skos:prefLabel "DHCP"@es ;
+  skos:prefLabel "DHCP"@en ;
+  skos:broader ex:servicios ;
+  skos:related ex:ip .
