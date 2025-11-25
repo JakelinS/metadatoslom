@@ -1,0 +1,52 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Redes de computadores — Concepto SKOS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://jakelins.github.io/metadatoslom/skos/redes">
+<style>
+  body{font:16px/1.7 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;max-width:860px;margin:2rem auto;padding:0 1rem}
+  code{background:#f6f8fa;padding:.2rem .4rem;border-radius:.3rem}
+  nav a{margin-right:.6rem}
+</style>
+
+<nav>
+  <a href="/metadatoslom/">Portada</a>
+  <a href="/metadatoslom/skos/tesauro-redes.ttl">SKOS (TTL)</a>
+</nav>
+
+<h1>Redes de computadores</h1>
+<p>URI del concepto: <code>https://jakelins.github.io/metadatoslom/skos/redes</code></p>
+
+<h2>Relaciones</h2>
+<ul>
+  <li><strong>Más general (broader):</strong> <a href="../informatica/">Informática</a></li>
+  <li><strong>Más específicos (narrower):</strong>
+    <a href="../ip/">Direccionamiento IP</a>,
+    <a href="../enrutamiento/">Enrutamiento</a>,
+    <a href="../capa-enlace/">Capa de enlace</a>,
+    <a href="../servicios/">Servicios de red</a>,
+    <a href="../arquitecturas/">Arquitecturas de red</a>
+  </li>
+</ul>
+
+<script type="application/ld+json">
+{
+  "@context": {"skos":"http://www.w3.org/2004/02/skos/core#"},
+  "@id": "https://jakelins.github.io/metadatoslom/skos/redes",
+  "@type": "skos:Concept",
+  "skos:inScheme": {"@id": "https://jakelins.github.io/metadatoslom/skos/tesauro-redes.ttl#scheme"},
+  "skos:prefLabel": [
+    {"@value":"Redes de computadores","@language":"es"},
+    {"@value":"Computer networks","@language":"en"}
+  ],
+  "skos:altLabel": [{"@value":"Redes de computación","@language":"es"}],
+  "skos:broader": {"@id":"https://jakelins.github.io/metadatoslom/skos/informatica"},
+  "skos:narrower": [
+    {"@id":"https://jakelins.github.io/metadatoslom/skos/ip"},
+    {"@id":"https://jakelins.github.io/metadatoslom/skos/enrutamiento"},
+    {"@id":"https://jakelins.github.io/metadatoslom/skos/capa-enlace"},
+    {"@id":"https://jakelins.github.io/metadatoslom/skos/servicios"},
+    {"@id":"https://jakelins.github.io/metadatoslom/skos/arquitecturas"}
+  ]
+}
+</script>
