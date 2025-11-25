@@ -1,0 +1,40 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Informática — Concepto SKOS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://jakelins.github.io/metadatoslom/skos/informatica">
+<style>
+  body{font:16px/1.7 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;max-width:860px;margin:2rem auto;padding:0 1rem}
+  code{background:#f6f8fa;padding:.2rem .4rem;border-radius:.3rem}
+  nav a{margin-right:.6rem}
+</style>
+
+<nav>
+  <a href="/metadatoslom/">Portada</a>
+  <a href="/metadatoslom/skos/tesauro-redes.ttl">SKOS (TTL)</a>
+</nav>
+
+<h1>Informática</h1>
+<p>URI del concepto: <code>https://jakelins.github.io/metadatoslom/skos/informatica</code></p>
+<p>Concepto raíz del tesauro de Redes de Computadores.</p>
+
+<h2>Relaciones</h2>
+<ul>
+  <li><strong>Más específico (narrower):</strong> <a href="../redes/">Redes de computadores</a></li>
+</ul>
+
+<!-- Datos semánticos: JSON-LD con SKOS -->
+<script type="application/ld+json">
+{
+  "@context": {"skos":"http://www.w3.org/2004/02/skos/core#","dcterms":"http://purl.org/dc/terms/"},
+  "@id": "https://jakelins.github.io/metadatoslom/skos/informatica",
+  "@type": "skos:Concept",
+  "skos:inScheme": {"@id": "https://jakelins.github.io/metadatoslom/skos/tesauro-redes.ttl#scheme"},
+  "skos:topConceptOf": {"@id": "https://jakelins.github.io/metadatoslom/skos/tesauro-redes.ttl#scheme"},
+  "skos:prefLabel": [
+    {"@value":"Informática","@language":"es"},
+    {"@value":"Computing","@language":"en"}
+  ],
+  "skos:narrower": [{"@id":"https://jakelins.github.io/metadatoslom/skos/redes"}]
+}
+</script>
