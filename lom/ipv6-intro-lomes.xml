@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<lom xmlns="http://ltsc.ieee.org/xsd/LOM" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ltsc.ieee.org/xsd/LOM http://ltsc.ieee.org/xsd/lomv1.0/lom.xsd">
+<general><identifier>
+<catalog>URI</catalog>
+<entry>https://jakelins.github.io/metadatoslom/skos/ipv6</entry>
+</identifier>
+<title><string>Introducción a IPv6</string>
+</title>
+<language>es</language>
+<description><string>Estructura de direcciones IPv6, prefijos y notación. Actividad introductoria para 1º ASIR.</string>
+</description>
+<keyword><string>IPv6</string>
+<string>Direccionamiento IP</string>
+<string>Redes de computadores</string>
+</keyword>
+<structure><source>LOMv1.0</source>
+<value>atomic</value></structure>
+<aggregationLevel><source>LOMv1.0</source>
+<value>1</value></aggregationLevel>
+</general>
+<technical><format>text/html</format>
+<location>https://jakelins.github.io/metadatoslom/material/ipv6-intro/</location>
+</technical>
+<classification><purpose><source>LOMv1.0</source>
+<value>discipline</value></purpose>
+<taxonPath><source><string language="es">Tesauro Redes – JakelinS (https://jakelins.github.io/metadatoslom/skos/tesauro-redes.ttl)</string>
+</source>
+<taxon>
+<id>https://jakelins.github.io/metadatoslom/skos/informatica</id>
+<entry><string language="es">Informática</string>
+</entry>
+</taxon>
+<taxon>
+<id>https://jakelins.github.io/metadatoslom/skos/redes</id>
+<entry><string language="es">Redes de computadores</string>
+</entry>
+</taxon>
+<taxon>
+<id>https://jakelins.github.io/metadatoslom/skos/ip</id>
+<entry><string language="es">Direccionamiento IP</string>
+</entry>
+</taxon>
+<taxon>
+<id>https://jakelins.github.io/metadatoslom/skos/ipv6</id>
+<entry><string language="es">IPv6</string>
+</entry>
+</taxon>
+</taxonPath>
+<description><string language="es">Clasificación temática del OA según el tesauro SKOS de Redes (JakelinS). Ruta: Informática → Redes de computadores → Direccionamiento IP → IPv6.</string>
+</description>
+<keyword><string language="es">IPv6, Direccionamiento IP, Redes de computadores</string>
+</keyword>
+</classification>
+</lom>
