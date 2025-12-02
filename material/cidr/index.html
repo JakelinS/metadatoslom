@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Notación CIDR</title>
+    <meta name="description" content="Contenidos básicos sobre la notación CIDR para redes IP.">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1, h2 { color: #003366; }
+        ul { margin-left: 20px; }
+        code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+
+<h1>Notación CIDR</h1>
+
+<p>La notación CIDR se utiliza para indicar cuántos bits de una dirección IP pertenecen a la parte de red.</p>
+
+<h2>Cómo se escribe</h2>
+<ul>
+    <li>Se representa como <code>dirección/prefijo</code>, por ejemplo: <code>192.168.1.0/24</code>.</li>
+    <li>El número tras la barra indica el número de bits de red.</li>
+</ul>
+
+<h2>Ejemplos en IPv4</h2>
+<ul>
+    <li><code>10.0.0.0/8</code>: red privada grande.</li>
+    <li><code>172.16.0.0/16</code>: red privada de tamaño medio.</li>
+    <li><code>192.168.1.0/24</code>: red típica de hogar o pequeña oficina.</li>
+</ul>
+
+<h2>Relación con IPv6</h2>
+<ul>
+    <li>En IPv6 se usa la misma idea de prefijo, por ejemplo <code>2001:db8::/64</code>.</li>
+    <li>El prefijo <code>/64</code> indica que los 64 primeros bits corresponden a la red.</li>
+</ul>
+
+<p>Una vez entendida la notación CIDR, puedes continuar con el objeto de aprendizaje de 
+<a href="https://jakelins.github.io/metadatoslom/material/ipv6-intro/">Introducción a IPv6</a>.</p>
+
+</body>
+</html>
