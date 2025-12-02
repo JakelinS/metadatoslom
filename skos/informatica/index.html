@@ -1,40 +1,58 @@
-<!doctype html>
-<meta charset="utf-8">
-<title>Informática — Concepto SKOS</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="canonical" href="https://jakelins.github.io/metadatoslom/skos/informatica">
-<style>
-  body{font:16px/1.7 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;max-width:860px;margin:2rem auto;padding:0 1rem}
-  code{background:#f6f8fa;padding:.2rem .4rem;border-radius:.3rem}
-  nav a{margin-right:.6rem}
-</style>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tesauro de Informática</title>
+    <meta name="description" content="Tesauro sencillo de términos generales de informática.">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1, h2 { color: #003366; }
+        table { border-collapse: collapse; width: 100%; margin: 15px 0; }
+        th, td { border: 1px solid #ccc; padding: 6px 8px; text-align: left; }
+        th { background: #f0f0f0; }
+        code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+    </style>
+</head>
+<body>
 
-<nav>
-  <a href="/metadatoslom/">Portada</a>
-  <a href="/metadatoslom/skos/tesauro-redes.ttl">SKOS (TTL)</a>
-</nav>
+<h1>Tesauro de Informática</h1>
+<p>
+    Tesauro general con algunos conceptos básicos de informática. 
+    Se utiliza como nivel superior para otros tesauros más específicos 
+    (redes, direccionamiento IP, IPv6, etc.).
+</p>
 
-<h1>Informática</h1>
-<p>URI del concepto: <code>https://jakelins.github.io/metadatoslom/skos/informatica</code></p>
-<p>Concepto raíz del tesauro de Redes de Computadores.</p>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Término preferido</th>
+            <th>Definición</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>info</code></td>
+            <td>Informática</td>
+            <td>Disciplina que estudia el tratamiento automático de la información mediante ordenadores.</td>
+        </tr>
+        <tr>
+            <td><code>info_hw</code></td>
+            <td>Hardware</td>
+            <td>Conjunto de elementos físicos de un sistema informático.</td>
+        </tr>
+        <tr>
+            <td><code>info_sw</code></td>
+            <td>Software</td>
+            <td>Programas y datos que permiten realizar tareas en un sistema informático.</td>
+        </tr>
+        <tr>
+            <td><code>info_redes</code></td>
+            <td>Redes de computadores</td>
+            <td>Área de la informática que se ocupa de la interconexión de equipos para compartir recursos.</td>
+        </tr>
+    </tbody>
+</table>
 
-<h2>Relaciones</h2>
-<ul>
-  <li><strong>Más específico (narrower):</strong> <a href="../redes/">Redes de computadores</a></li>
-</ul>
-
-<!-- Datos semánticos: JSON-LD con SKOS -->
-<script type="application/ld+json">
-{
-  "@context": {"skos":"http://www.w3.org/2004/02/skos/core#","dcterms":"http://purl.org/dc/terms/"},
-  "@id": "https://jakelins.github.io/metadatoslom/skos/informatica",
-  "@type": "skos:Concept",
-  "skos:inScheme": {"@id": "https://jakelins.github.io/metadatoslom/skos/tesauro-redes.ttl#scheme"},
-  "skos:topConceptOf": {"@id": "https://jakelins.github.io/metadatoslom/skos/tesauro-redes.ttl#scheme"},
-  "skos:prefLabel": [
-    {"@value":"Informática","@language":"es"},
-    {"@value":"Computing","@language":"en"}
-  ],
-  "skos:narrower": [{"@id":"https://jakelins.github.io/metadatoslom/skos/redes"}]
-}
-</script>
+</body>
+</html>
