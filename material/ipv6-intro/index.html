@@ -1,97 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<meta charset="utf-8">
-<title>OA: Introducción a IPv6 — Redes de computadores</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="canonical" href="https://jakelins.github.io/metadatoslom/material/ipv6-intro/">
-<style>
-  :root{--fg:#222;--muted:#555;--bg:#fff;--accent:#0a66c2}
-  html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:17px/1.7 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-  main{max-width:880px;margin:2.2rem auto;padding:0 1rem}
-  h1{font-size:2rem;margin:.2rem 0 1rem}
-  h2{margin:2rem 0 .5rem}
-  p,li{max-width:75ch}
-  .note{background:#f6f8fa;border:1px solid #e2e5e9;border-radius:8px;padding:.9rem 1rem}
-  nav{font-size:.95rem;margin-bottom:1rem}
-  nav a{color:var(--accent);text-decoration:none;margin-right:.8rem}
-  code{background:#f6f8fa;padding:.15rem .35rem;border-radius:.3rem}
-  .grid{display:grid;gap:1rem}
-  @media (min-width:900px){.grid{grid-template-columns:1fr 1fr}}
-  .card{border:1px solid #e2e5e9;border-radius:12px;padding:1rem}
-  footer{margin:3rem 0 2rem;color:var(--muted);font-size:.9rem}
-</style>
+<head>
+    <meta charset="UTF-8">
+    <title>OA: Introducción a IPv6</title>
+    <meta name="description" content="Objeto de aprendizaje sobre introducción a IPv6, con objetivos, contenidos, actividades y recursos enlazados a un tesauro SKOS.">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; line-height: 1.6; }
+        h1, h2, h3 { color: #003366; }
+        header, footer { border-bottom: 1px solid #ccc; margin-bottom: 20px; padding-bottom: 10px; }
+        footer { border-top: 1px solid #ccc; border-bottom: none; margin-top: 30px; font-size: 0.9em; color: #555; }
+        .breadcrumb { font-size: 0.95em; color: #555; margin-top: 5px; }
+        .bloque { background: #f5f5f5; padding: 10px 15px; margin: 15px 0; border-radius: 5px; }
+        ul, ol { margin-left: 20px; }
+        code { background: #eee; padding: 2px 4px; border-radius: 3px; }
+        a { color: #0055aa; }
+    </style>
+</head>
+<body>
 
-<nav>
-  <a href="/metadatoslom/">Portada</a>
-  <a href="/metadatoslom/skos/tesauro-redes.ttl">Tesauro SKOS (TTL)</a>
-  <a href="/metadatoslom/skos/ip">Direccionamiento IP</a>
-  <a href="/metadatoslom/skos/ipv6">IPv6</a>
-</nav>
+<header>
+    <h1>OA: Introducción a IPv6</h1>
+    <p class="breadcrumb">
+        <strong>Clasificación (tesauro):</strong>
+        Informática → Redes de computadores → Direccionamiento IP → IPv6.
+    </p>
+</header>
 
-<main>
-  <h1>OA: Introducción a IPv6</h1>
-  <p class="note">
-    Clasificación (tesauro): 
-    <a href="https://jakelins.github.io/metadatoslom/skos/informatica/">Informática</a> → 
-    <a href="https://jakelins.github.io/metadatoslom/skos/redes/">Redes de computadores</a> → 
-    <a href="https://jakelins.github.io/metadatoslom/skos/ip/">Direccionamiento IP</a> → 
-    <a href="https://jakelins.github.io/metadatoslom/skos/ipv6/">IPv6</a>.
-  </p>
+<section class="bloque">
+    <h2>1. Objetivos de aprendizaje</h2>
+    <ul>
+        <li>Reconocer la estructura de una dirección IPv6.</li>
+        <li>Aplicar reglas de compresión y notación en direcciones IPv6.</li>
+        <li>Comprobar la pertenencia de direcciones a un prefijo IPv6 dado.</li>
+    </ul>
+</section>
 
-  <h2>1. Objetivos de aprendizaje</h2>
-  <ul>
-    <li>Reconocer la estructura de una dirección IPv6.</li>
-    <li>Aplicar reglas de compresión y notación.</li>
-    <li>Comprobar pertenencia de direcciones a un prefijo.</li>
-  </ul>
+<section class="bloque">
+    <h2>2. Requisitos previos</h2>
+    <p>Se recomienda haber trabajado previamente:</p>
+    <ul>
+        <li>Conceptos básicos de <strong>IPv4</strong>.</li>
+        <li>Notación de prefijos y <strong>CIDR</strong>.</li>
+    </ul>
+</section>
 
-  <h2>2. Requisitos previos</h2>
-  <ul>
-    <li>Repaso de <a href="material/ipv4/index.html">IPv4</a> y <a href="material/cidr/index.html">CIDR</a> (si están publicados).</li>
-  </ul>
+<section>
+    <h2>3. Contenidos</h2>
 
-  <h2>3. Contenidos</h2>
-  <div class="grid">
-    <section class="card">
-      <h3>3.1 Conceptos clave</h3>
-      <ul>
-        <li>128 bits (8 grupos hex de 16 bits): <code>2001:0db8:0000:0000:0000:ff00:0042:8329</code></li>
-        <li>Prefijos habituales en LAN: <code>/64</code>.</li>
-      </ul>
-    </section>
-    <section class="card">
-      <h3>3.2 Reglas de compresión</h3>
-      <ul>
-        <li>Eliminar ceros a la izquierda en cada grupo.</li>
-        <li>Un solo <code>::</code> por dirección (cadena de <code>0000</code>).</li>
-        <li>Ej.: <code>2001:db8::ff00:42:8329</code></li>
-      </ul>
-    </section>
-  </div>
+    <h3>3.1. Conceptos clave</h3>
+    <ul>
+        <li>
+            IPv6 utiliza direcciones de <strong>128 bits</strong>, representadas como
+            <strong>8 grupos hexadecimales de 16 bits</strong>:
+            <br>
+            <code>2001:0db8:0000:0000:0000:ff00:0042:8329</code>
+        </li>
+        <li>
+            Prefijos habituales en redes LAN:
+            <strong><code>/64</code></strong>.
+        </li>
+    </ul>
 
-  <h2>4. Actividad</h2>
-  <ol>
-    <li>Comprime: <code>2001:0db8:0000:0000:0000:0000:0000:0001</code>.</li>
-    <li>¿Pertenece <code>2001:db8::10</code> a <code>2001:db8::/64</code>?</li>
-    <li>Ejemplo de enlace-local válido (<code>fe80::/10</code>).</li>
-  </ol>
+    <h3>3.2. Reglas de compresión</h3>
+    <ul>
+        <li>Se pueden eliminar ceros a la izquierda en cada grupo.</li>
+        <li>Solo se puede usar <code>::</code> una vez por dirección (representa una cadena de grupos <code>0000</code>).</li>
+        <li>
+            Ejemplo de compresión:<br>
+            <code>2001:0db8:0000:0000:0000:ff00:0042:8329</code> → 
+            <code>2001:db8::ff00:42:8329</code>
+        </li>
+    </ul>
+</section>
 
-  <h2>5. Autoevaluación</h2>
-  <ul>
-    <li>¿Cuántos bits tiene IPv6? ¿Cómo se escriben en notación textual?</li>
-    <li>¿Cuándo puedes usar <code>::</code> y cuántas veces?</li>
-    <li>Da un ejemplo de prefijo /64 en una LAN.</li>
-  </ul>
+<section>
+    <h2>4. Actividad</h2>
+    <ol>
+        <li>
+            Comprime la siguiente dirección IPv6 aplicando las reglas de abreviación:<br>
+            <code>2001:0db8:0000:0000:0000:0000:0000:0001</code>.
+        </li>
+        <li>
+            Comprueba si la dirección <code>2001:db8::10</code> pertenece al prefijo
+            <code>2001:db8::/64</code>. Justifica la respuesta.
+        </li>
+        <li>
+            Escribe un ejemplo de dirección de <strong>enlace local</strong> válida
+            (rango <code>fe80::/10</code>) y explica en qué tipo de red se usaría.
+        </li>
+    </ol>
+</section>
 
-  <h2>6. Recursos</h2>
-  <ul>
-    <li><a href="/metadatoslom/skos/ipv6">Concepto SKOS: IPv6</a></li>
-    <li><a href="/metadatoslom/skos/ip">Concepto SKOS: Direccionamiento IP</a></li>
-    <li><a href="/metadatoslom/skos/tesauro-redes.ttl">Tesauro completo (TTL)</a></li>
-  </ul>
+<section>
+    <h2>5. Autoevaluación</h2>
+    <ol>
+        <li>¿Cuántos bits tiene una dirección IPv6? ¿Cómo se representa en notación textual?</li>
+        <li>¿Cuándo puedes usar <code>::</code> en una dirección IPv6 y cuántas veces como máximo?</li>
+        <li>Da un ejemplo de prefijo <code>/64</code> en una LAN e indica qué parte corresponde a la red.</li>
+    </ol>
+</section>
 
-  <footer>© Jakelin Saysa — Uso docente. Si reutilizas, cita la fuente.</footer>
-</main>
+<section class="bloque">
+    <h2>6. Recursos</h2>
+    <ul>
+        <li>
+            Concepto SKOS: <strong>IPv6</strong>  
+            <br>
+            Consultar en el tesauro de IPv6:
+            <a href="https://jakelins.github.io/metadatoslom/skos/ipv6/">
+                https://jakelins.github.io/metadatoslom/skos/ipv6/
+            </a>
+        </li>
+        <li>
+            Concepto SKOS: <strong>Direccionamiento IP</strong>  
+            <br>
+            Consultar en el tesauro de IP:
+            <a href="https://jakelins.github.io/metadatoslom/skos/ip/">
+                https://jakelins.github.io/metadatoslom/skos/ip/
+            </a>
+        </li>
+        <li>
+            Tesauro completo (SKOS TTL):  
+            <a href="https://jakelins.github.io/metadatoslom/skos/tesauro-redes.ttl">
+                https://jakelins.github.io/metadatoslom/skos/tesauro-redes.ttl
+            </a>
+        </li>
+        <li>
+            Descargar metadatos LOM-ES (IPv6):  
+            <a href="https://jakelins.github.io/metadatoslom/lom/ipv6-intro-lomes.xml">
+                https://jakelins.github.io/metadatoslom/lom/ipv6-intro-lomes.xml
+            </a>
+        </li>
+    </ul>
+</section>
+
+<footer>
+    <p>© Jakelin Saysa — Uso docente. Si reutilizas, cita la fuente.</p>
+</footer>
+
+</body>
 </html>
-
 
