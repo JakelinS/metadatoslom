@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<lom xmlns="http://ltsc.ieee.org/xsd/LOM" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ltsc.ieee.org/xsd/LOM http://ltsc.ieee.org/xsd/lomv1.0/lom.xsd">
+<general><identifier>
+<catalog>URI</catalog>
+<entry>https://jakelins.github.io/metadatoslom/material/ipv6-intro/</entry>
+</identifier>
+<title><string language="es">Introducción a IPv6</string>
+</title>
+<language>es</language>
+<description><string language="es">Objeto de aprendizaje introductorio sobre IPv6 para alumnado de informática. Incluye objetivos, contenidos, actividades y enlaces a un tesauro SKOS.</string>
+</description>
+<keyword><string language="es">IPv6  Direccionamiento IP  Redes de computadores  Formación Profesional</string>
+</keyword>
+</general>
+<technical><format>text/html</format>
+<location>https://jakelins.github.io/metadatoslom/material/ipv6-intro/</location>
+</technical>
+<educational><interactivityType><source>LOMv1.0</source>
+<value>expositive</value></interactivityType>
+<learningResourceType><source>LOMv1.0</source>
+<value>narrative text</value></learningResourceType>
+<interactivityLevel><source>LOMv1.0</source>
+<value>medium</value></interactivityLevel>
+<semanticDensity><source>LOMv1.0</source>
+<value>medium</value></semanticDensity>
+<intendedEndUserRole><source>LOMv1.0</source>
+<value>learner</value></intendedEndUserRole>
+<intendedEndUserRole><source>LOMv1.0</source>
+<value>teacher</value></intendedEndUserRole>
+<context><source>LOMv1.0</source>
+<value>higher education</value></context>
+<typicalAgeRange><string language="es">16-20</string>
+</typicalAgeRange>
+<difficulty><source>LOMv1.0</source>
+<value>medium</value></difficulty>
+<typicalLearningTime><duration>PT2H</duration>
+<description><string language="es">Lectura y realización de la actividad práctica sobre IPv6 en una sesión de clase.</string>
+</description>
+</typicalLearningTime>
+<description><string language="es">Objeto de aprendizaje introductorio sobre IPv6 para alumnado de Formación Profesional en informática. Combina explicación teórica y una actividad práctica de aplicación de direcciones y prefijos IPv6.</string>
+</description>
+</educational>
+<classification><purpose><source>LOMv1.0</source>
+<value>discipline</value></purpose>
+<taxonPath><source><string language="es">https://jakelins.github.io/metadatoslom/skos/tesauro-redes.ttl</string>
+</source>
+<taxon>
+<id>info</id>
+<entry><string language="es">Informática</string>
+</entry>
+</taxon>
+<taxon>
+<id>redes</id>
+<entry><string language="es">Redes de computadores</string>
+</entry>
+</taxon>
+<taxon>
+<id>ip_direccionamiento</id>
+<entry><string language="es">Direccionamiento IP</string>
+</entry>
+</taxon>
+<taxon>
+<id>ipv6</id>
+<entry><string language="es">IPv6</string>
+</entry>
+</taxon>
+</taxonPath>
+</classification>
+</lom>
